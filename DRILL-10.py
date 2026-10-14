@@ -80,8 +80,8 @@ def reset_world():
     world.append(zomebie)    # 월드에 추가
     team = [Boy() for i in range(11)]   # 리스트 컴프리헨션으로 소년 11명 생성
     world += team                        # 리스트 합치기 (extend와 같음). append(team)하면 리스트가 통째로 하나의 원소로 들어가니 주의!
-    ball = Ball()
-    world.append(ball)
+    team2 = [Ball() for i in range(20)]
+    world += team2      
 
     # world에 넣은 순서 = 그리는 순서 -> 먼저 넣은 잔디가 가장 뒤(아래)에 그려짐
 
