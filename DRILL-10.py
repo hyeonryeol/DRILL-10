@@ -58,10 +58,11 @@ class Ball:
         self.image = load_image('ball21x21.png')
     
     def update(self):
-       
         self.dy = random.randint(10, 20)     # 위로 띄우기
         if self.y < 570:
             self.y += self.dy
+        elif self.y >550:
+            self.y -= self.dy
     def draw(self):
         self.image.draw(self.x, self.y)
 # ---------------------------------------------------------------
