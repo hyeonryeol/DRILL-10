@@ -52,10 +52,26 @@ class Zombie:
 
 class Ball:
     def __init__(self):
-        self.x, self.y = random.randint(200, 700), 70  # 잔디 위에 놓인 작은 공
-        self.r = 10                                          # 반지름 (ball21x21 -> 10)
+        self.x, self.y = random.randint(100, 700), 70  # 잔디 위에 놓인 작은 공
+        self.r = 10                                         # 반지름 (ball21x21 -> 10)
         self.dy = 0                              # 처음엔 멈춰 있음
         self.image = load_image('ball21x21.png')
+    
+    def update(self):
+        self.dy = random.randint(10, 20)     # 위로 띄우기
+        if self.y < 570:
+            self.y += self.dy
+        elif self.y >550:
+            self.y -= self.dy
+    def draw(self):
+        self.image.draw(self.x, self.y)
+
+class Ball2:
+    def __init__(self):
+        self.x, self.y = random.randint(50, 700), 70  # 잔디 위에 놓인 작은 공
+        self.r = 10                                         # 반지름 (ball21x21 -> 10)
+        self.dy = 0                              # 처음엔 멈춰 있음
+        self.image = load_image('ball41x41.png')
     
     def update(self):
         self.dy = random.randint(10, 20)     # 위로 띄우기
@@ -85,9 +101,10 @@ def reset_world():
     world.append(zomebie)    # 월드에 추가
     team = [Boy() for i in range(11)]   # 리스트 컴프리헨션으로 소년 11명 생성
     world += team                        # 리스트 합치기 (extend와 같음). append(team)하면 리스트가 통째로 하나의 원소로 들어가니 주의!
-    team2 = [Ball() for i in range(20)]
+    team3 = [Ball2() for i in range(10)]
+    world += team3
+    team2 = [Ball() for i in range(10)]
     world += team2      
-
     # world에 넣은 순서 = 그리는 순서 -> 먼저 넣은 잔디가 가장 뒤(아래)에 그려짐
 
 
