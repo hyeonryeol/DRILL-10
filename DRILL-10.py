@@ -56,8 +56,12 @@ class Ball:
         self.r = 10                                          # 반지름 (ball21x21 -> 10)
         self.dy = 0                              # 처음엔 멈춰 있음
         self.image = load_image('ball21x21.png')
+    
     def update(self):
-        pass
+       
+        self.dy = random.randint(10, 20)     # 위로 띄우기
+        
+        self.y += self.dy
     def draw(self):
         self.image.draw(self.x, self.y)
 # ---------------------------------------------------------------
