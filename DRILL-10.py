@@ -52,7 +52,7 @@ class Zombie:
 
 class Ball:
     def __init__(self):
-        self.x, self.y = random.randint(200, 700), 60 + 10   # 잔디 위에 놓인 작은 공
+        self.x, self.y = random.randint(200, 700), 70  # 잔디 위에 놓인 작은 공
         self.r = 10                                          # 반지름 (ball21x21 -> 10)
         self.dy = 0                              # 처음엔 멈춰 있음
         self.image = load_image('ball21x21.png')
@@ -60,8 +60,8 @@ class Ball:
     def update(self):
        
         self.dy = random.randint(10, 20)     # 위로 띄우기
-        
-        self.y += self.dy
+        if self.y < 570:
+            self.y += self.dy
     def draw(self):
         self.image.draw(self.x, self.y)
 # ---------------------------------------------------------------
